@@ -46,41 +46,35 @@ $GLOBALS['TCA']['tt_content']['types']['ps14_modulor']['columnsOverrides']['imag
 // ---------------------------------------------------------------------------------------------------------------------
 // Elements TCA anpassen
 
-//$GLOBALS['TCA']['tt_content']['types']['ce_accordion']['columnsOverrides']['tx_xo_elements']['config']['overrideChildTca'] = [
-//	'columns' => [
-//		'record_type' => [
-//			'config' => [
-//				'items' => [
-//					['LLL:EXT:ce_accordion/Resources/Private/Language/locallang_tca.xlf:tx_xo_domain_model_elements.record_type.default', 'ce_accordion_default'],
-//					['LLL:EXT:ce_accordion/Resources/Private/Language/locallang_tca.xlf:tx_xo_domain_model_elements.record_type.records', 'ce_accordion_records'],
-//				],
-//				'default' => 'ce_accordion_default'
-//			]
-//		],
-//		'description' => [
-//			'config' => [
-//				'richtextConfiguration' => 'xoDefault'
-//			]
-//		]
-//	],
-//	'types' => [
-//		'ce_accordion_default' => [
-//			'showitem' => '
-//					l10n_diffsource, record_type, --palette--;;header, tx_ce_accordion_active, description,
-//				--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.access,
-//					--palette--;;visibility,
-//					--palette--;;access,
-//				--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
-//					--palette--;;print,',
-//		],
-//		'ce_accordion_records' => [
-//			'showitem' => '
-//					l10n_diffsource, record_type, --palette--;;header, tx_ce_accordion_active, content,
-//				--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.access,
-//					--palette--;;visibility,
-//					--palette--;;access,
-//				--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.appearance,
-//					--palette--;;print,',
-//		],
-//	]
-//];
+// Definition Record
+$GLOBALS['TCA']['tt_content']['types']['ps14_modulor']['columnsOverrides']['tx_foundation_elements']['config']['overrideChildTca'] = [
+	'columns' => [
+		'record_type' => [
+			'config' => [
+				'items' => [
+					[
+						'label' => 'LLL:EXT:ps14_modulor/Resources/Private/Language/locallang_tca.xlf:elements.record-type.default',
+						'value' => 'ps14_modulor_default'
+					],
+				],
+				'default' => 'ps14_modulor_default'
+			]
+		],
+		'description' => [
+			'config' => [
+				'richtextConfiguration' => 'ps14Default'
+			]
+		]
+	],
+	'types' => [
+		'ps14_modulor_default' => [
+			'showitem' => \Ps14\Site\Service\TcaService::getShowitem(
+				['general', 'appearance', 'access'],
+				[
+					'general' => '--palette--;;general, --palette--;;header, description, media,'
+				],
+				'tx_foundation_domain_model_elements'
+			)
+		],
+	]
+];
