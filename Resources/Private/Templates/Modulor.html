@@ -1,6 +1,26 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:fo="http://typo3.org/ns/Ps14/Foundation/ViewHelpers" data-namespace-typo3-fluid="true">
 	<f:layout name="Default" />
 	<f:section name="Main">
-		<f:debug>{_all}</f:debug>
+
+		<f:if condition="{data.bodytext}">
+			<f:render partial="Content/Bodytext" arguments="{bodytext: data.bodytext}" />
+		</f:if>
+
+		<f:if condition="{images}">
+			<ul>
+				<f:for each="{images}" as="image">
+					<li>
+						<f:render partial="Media/Type/Image" section="Main" arguments="{
+							file: image,
+							settings: '{fo:settings.get(extension: \'Ps14Modulor\', path: \'image\')}'
+						}" />
+					</li>
+				</f:for>
+			</ul>
+		</f:if>
+
+		<f:comment>
+			<f:debug>{_all}</f:debug>
+		</f:comment>
 	</f:section>
 </html>

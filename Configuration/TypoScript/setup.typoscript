@@ -1,3 +1,5 @@
+// ---------------------------------------------------------------------------------------------------------------------
+// tt_content Definition
 tt_content {
 	ps14_modulor =< lib.contentElement
 	ps14_modulor {
@@ -28,6 +30,40 @@ tt_content {
 
 				importJs {
 					10 = /assets/js/modules/modulor.js
+				}
+			}
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Settings
+plugin.tx_ps14modulor {
+	settings {
+		image {
+			maxWidth = 1200
+			cropVariant = desktop
+
+			mediaQueries {
+				0 {
+					maxWidth = 1200
+					cropVariant = desktop
+					mediaQuery = (min-width: 992px)
+				}
+				1 {
+					maxWidth = 992
+					cropVariant = desktop
+					mediaQuery = (min-width: 768px)
+				}
+				2 {
+					maxWidth = 768
+					cropVariant = mobile
+					mediaQuery = (min-width: 576px)
+				}
+				3 {
+					maxWidth = 576
+					cropVariant = mobile
+					mediaQuery = (min-width: 0px)
 				}
 			}
 		}
