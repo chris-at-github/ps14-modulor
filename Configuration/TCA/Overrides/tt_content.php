@@ -78,3 +78,13 @@ $GLOBALS['TCA']['tt_content']['types']['ps14_modulor']['columnsOverrides']['tx_f
 		],
 	]
 ];
+
+// Anpassung Crop-Varianten fuer Elements
+$GLOBALS['TCA']['tt_content']['types']['ps14_modulor']['columnsOverrides']['tx_foundation_elements']['config']['overrideChildTca']['columns']['media']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = \Ps14\Site\Service\TcaService::getCropVariants(
+	[
+		'default' => [
+			'allowedAspectRatios' => ['16_9'],
+			'selectedRatio' => '16_9'
+		],
+	]
+);
