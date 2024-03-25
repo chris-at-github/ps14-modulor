@@ -29,6 +29,23 @@ $GLOBALS['TCA']['tt_content']['types']['ps14_modulor']['columnsOverrides']['body
 	'richtextConfiguration' => 'ps14Default',
 ];
 
+// Crop-Varianten fuer Image-Feld
+$GLOBALS['TCA']['tt_content']['types']['ps14_modulor']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config']['cropVariants'] = \Ps14\Site\Service\TcaService::getCropVariants(
+	[
+		'thumbnail' => [
+			'allowedAspectRatios' => ['16_9', '4_3'],
+			'selectedRatio' => '16_9'
+		],
+		'fullsize' => [
+			'allowedAspectRatios' => ['21_9', 'NaN'],
+			'selectedRatio' => '21_9'
+		]
+	]
+);
+
+// ---------------------------------------------------------------------------------------------------------------------
+// Elements TCA anpassen
+
 //$GLOBALS['TCA']['tt_content']['types']['ce_accordion']['columnsOverrides']['tx_xo_elements']['config']['overrideChildTca'] = [
 //	'columns' => [
 //		'record_type' => [
