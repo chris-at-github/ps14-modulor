@@ -1,0 +1,35 @@
+tt_content {
+	ps14_modulor =< lib.contentElement
+	ps14_modulor {
+		templateName = Modulor.html
+		layoutRootPaths {
+			10 = EXT:ps14_modulor/Resources/Private/Layouts/
+			20 = EXT:ps14_site/Resources/Private/Extensions/Modulor/Layouts/
+		}
+
+		templateRootPaths {
+			10 = EXT:ps14_modulor/Resources/Private/Templates/
+			20 = EXT:ps14_site/Resources/Private/Extensions/Modulor/Templates/
+		}
+
+		partialRootPaths {
+			10 = EXT:ps14_modulor/Resources/Private/Partials/
+			20 = EXT:ps14_site/Resources/Private/Extensions/Modulor/Partials/
+			30 = EXT:ps14_foundation/Resources/Private/Partials/
+			40 = EXT:ps14_site/Resources/Private/Partials/
+		}
+
+		dataProcessing {
+			120 = Ps14\Modulor\DataProcessing\ModuleProcessor
+			120 {
+				importCss {
+					10 = /assets/css/modules/modulor.css
+				}
+
+				importJs {
+					10 = /assets/js/modules/modulor.js
+				}
+			}
+		}
+	}
+}
