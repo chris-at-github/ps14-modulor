@@ -12,26 +12,23 @@
 	'ps14_modulor'
 );
 
-//$GLOBALS['TCA']['tt_content']['types']['ps14_modulor'] = [
-//	'showitem' => '
-//			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.general;general,
-//			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.header;xoHeader, bodytext, tx_xo_elements,
-//		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.appearance,
-//			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.frames;frames,
-//			--palette--;;xoPrint,
-//		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.access,
-//			--palette--;;hidden,
-//			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.visibility;visibility,
-//			--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:palette.access;access,
-//		--div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xml:tabs.extended
-//	',
-//];
-//
-//$GLOBALS['TCA']['tt_content']['types']['ps14_modulor']['columnsOverrides']['bodytext']['config'] = [
-//	'enableRichtext' => true,
-//	'richtextConfiguration' => 'ps14Default',
-//];
-//
+// ---------------------------------------------------------------------------------------------------------------------
+// Modul TCA anpassen
+
+// Felddefinitionen
+$GLOBALS['TCA']['tt_content']['types']['ps14_modulor']['showitem'] = \Ps14\Site\Service\TcaService::getShowitem(
+	['general', 'appearance', 'language', 'access', 'categories', 'notes', 'extended'],
+	[
+		'general' => '--palette--;;general, --palette--;;headers, --palette--;;foundation_identifier, bodytext, image, tx_foundation_elements,'
+	]
+);
+
+// Bodytext mit CKEditor rendern
+$GLOBALS['TCA']['tt_content']['types']['ps14_modulor']['columnsOverrides']['bodytext']['config'] = [
+	'enableRichtext' => true,
+	'richtextConfiguration' => 'ps14Default',
+];
+
 //$GLOBALS['TCA']['tt_content']['types']['ce_accordion']['columnsOverrides']['tx_xo_elements']['config']['overrideChildTca'] = [
 //	'columns' => [
 //		'record_type' => [
