@@ -40,30 +40,50 @@ tt_content {
 // Settings
 plugin.tx_ps14modulor {
 	settings {
-		image {
-			maxWidth = 1200
-			cropVariant = desktop
+		images {
+			main {
+				maxWidth = 1200
+				cropVariant = desktop
 
-			mediaQueries {
-				0 {
-					maxWidth = 1200
-					cropVariant = desktop
-					mediaQuery = (min-width: 992px)
+				mediaQueries {
+					0 {
+						maxWidth = 1200
+						cropVariant = desktop
+						mediaQuery = (min-width: 992px)
+					}
+					1 {
+						maxWidth = 992
+						cropVariant = desktop
+						mediaQuery = (min-width: 768px)
+					}
+					2 {
+						maxWidth = 768
+						cropVariant = mobile
+						mediaQuery = (min-width: 576px)
+					}
+					3 {
+						maxWidth = 576
+						cropVariant = mobile
+						mediaQuery = (min-width: 0px)
+					}
 				}
-				1 {
-					maxWidth = 992
-					cropVariant = desktop
-					mediaQuery = (min-width: 768px)
-				}
-				2 {
-					maxWidth = 768
-					cropVariant = mobile
-					mediaQuery = (min-width: 576px)
-				}
-				3 {
-					maxWidth = 576
-					cropVariant = mobile
-					mediaQuery = (min-width: 0px)
+			}
+
+			element {
+				maxWidth = 480
+				cropVariant = default
+
+				mediaQueries {
+					1 {
+						maxWidth = 480
+						cropVariant = default
+						mediaQuery = (min-width: 768px)
+					}
+					3 {
+						maxWidth = 320
+						cropVariant = default
+						mediaQuery = (min-width: 0px)
+					}
 				}
 			}
 		}
