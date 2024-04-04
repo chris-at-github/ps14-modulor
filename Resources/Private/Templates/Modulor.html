@@ -17,7 +17,7 @@
 			<ul>
 				<f:for each="{images}" as="image">
 					<li>
-						<f:render partial="Media/Type/Image" section="Main" arguments="{
+						<f:render partial="Media/Main" section="Main" arguments="{
 							file: image,
 							settings: '{fo:settings.get(extension: \'Ps14Modulor\', path: \'images.main\')}'
 						}" />
@@ -44,7 +44,7 @@
 							<ul>
 								<f:for each="{element.media}" as="image">
 									<li>
-										<f:render partial="Media/Type/Image" section="Main" arguments="{
+										<f:render partial="Media/Main" section="Main" arguments="{
 											file: image,
 											settings: '{fo:settings.get(extension: \'Ps14Modulor\', path: \'images.element\')}'
 										}" />
